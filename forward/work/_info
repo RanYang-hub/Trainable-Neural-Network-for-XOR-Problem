@@ -1,0 +1,137 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.01, Jan 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 d/home/xyj8291/forward/forward
+T_opt
+Z1 !s110 1741560771
+V;g;nZYfgTWU4k6N9WM?^^3
+04 17 4 work tb_neural_network fast 0
+=1-a4bb6d3fede8-67ce1bc3-72afe-30f376
+o-quiet -auto_acc_if_foreign -work work -L work +acc
+Z2 tCvgOpt 0
+n@_opt
+OL;O;2020.1;71
+vforward_propagation
+R1
+!i10b 1
+!s100 dfcE4T5KBX`ib6NH6z>6B3
+Z3 !s11b Dg1SIo80bB@j0V0VzS_@n1
+IK6jOZOY=TA[:4YlCN5[a`0
+Z4 VDg1SIo80bB@j0V0VzS_@n1
+R0
+w1741535791
+8forward_propagation.v
+Fforward_propagation.v
+!i122 69
+L0 1 168
+Z5 OL;L;2020.1;71
+r1
+!s85 0
+31
+Z6 !s108 1741560771.000000
+!s107 forward_propagation.v|
+!s90 -reportprogress|300|forward_propagation.v|
+!i113 0
+Z7 o-L mtiAvm -L mtiRnm -L mtiOvm -L mtiUvm -L mtiUPF -L infact
+R2
+vneuron
+R1
+!i10b 1
+!s100 [7>XCVlik5@TN]P@UWnnY3
+R3
+IOTIjYA4R_3;bOZYLzF;JT2
+R4
+R0
+w1741541910
+8neuron.v
+Fneuron.v
+!i122 68
+L0 1 91
+R5
+r1
+!s85 0
+31
+R6
+!s107 neuron.v|
+!s90 -reportprogress|300|neuron.v|
+!i113 0
+R7
+R2
+vReLU
+!s110 1741502979
+!i10b 1
+!s100 0L=RfddL3_OghPPNCTHTG2
+R3
+IlMJIF3MldcCfGaXkQ][OX2
+R4
+R0
+w1741501137
+8relu.v
+Frelu.v
+!i122 29
+L0 1 23
+R5
+r1
+!s85 0
+31
+!s108 1741502979.000000
+!s107 relu.v|
+!s90 -reportprogress|300|relu.v|
+!i113 0
+R7
+R2
+n@re@l@u
+vSig_ROM
+R1
+!i10b 1
+!s100 OZ63Q8[OzO00gL22o8MHQ3
+R3
+I]D91BN<ofOVnIYZcMYdBk3
+R4
+R0
+w1741560761
+8Sig_ROM.v
+FSig_ROM.v
+!i122 67
+L0 1 303
+R5
+r1
+!s85 0
+31
+R6
+!s107 Sig_ROM.v|
+!s90 -reportprogress|300|Sig_ROM.v|
+!i113 0
+R7
+R2
+n@sig_@r@o@m
+vtb_neural_network
+R1
+!i10b 1
+!s100 5VCe59>2eH9bg;>2QHJW=1
+R3
+IR9gINk<i<`>1BD`=AJJVU1
+R4
+R0
+w1741560188
+8forward_propagation_tb.v
+Fforward_propagation_tb.v
+!i122 70
+L0 1 208
+R5
+r1
+!s85 0
+31
+R6
+!s107 forward_propagation_tb.v|
+!s90 -reportprogress|300|forward_propagation_tb.v|
+!i113 0
+R7
+R2

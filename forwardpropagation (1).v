@@ -33,23 +33,6 @@ module forward_propagation (
         .x(z3),
         .out(sigmoid_out)
     );
-    neuron #(
-    .dataWidth(16),
-    .weightIntWidth(1),
-    .sigmoidSize(8),
-    .actType("sigmoid")  // "sigmoid" or "relu"
-) neuron_inst (
-    .clk(clk),
-    .rst(rst),
-    .input1(x1),
-    .input2(x1),
-    .inputs_valid(enable_fp),
-    .weight1(w11),
-    .weight2(w12),
-    .bias_in(b1),
-    .out(),
-    .outvalid()
-);
     // ReLU activation function
     function signed [15:0] relu;
         input signed [15:0] x;
@@ -215,93 +198,4 @@ module Sigmoid_Combinational (
     // Apply sigmoid property: sigmoid(-x) = 1 - sigmoid(x)
     // In 8.8 fixed-point representation: sigmoid(-x) = 256 - sigmoid(x)
     assign out = (x[15]) ? (16'h0100 - sigmoid_value) : sigmoid_value;
-endmodule
-
-module neuron #(
-    parameter dataWidth=16,
-    parameter weightIntWidth=1,
-    parameter sigmoidSize=8,
-    parameter actType="sigmoid"  // "sigmoid" 或 "relu"
-)(
-    input                      clk,
-    input                      rst,
-    // 并行输入接口
-    input [dataWidth-1:0]      input1,
-    input [dataWidth-1:0]      input2,
-    input                      inputs_valid,
-    // 权重和偏置
-    input [dataWidth-1:0]      weight1,
-    input [dataWidth-1:0]      weight2,
-    input [dataWidth-1:0]      bias_in,
-    // 输出接口
-    output [dataWidth-1:0]     out,
-    output reg                 outvalid
-);
-    
-    // 内部信号
-    reg [2*dataWidth-1:0]    mul1, mul2; 
-    reg [2*dataWidth-1:0]    sum;
-    reg [2*dataWidth-1:0]    bias;
-    reg                      calc_started;
-    reg                      calc_done;
-    
-    // 偏置加载
-    always @(posedge clk) begin
-        if(rst) begin
-            bias <= 0;
-        end else begin
-            bias <= {bias_in, {dataWidth{1'b0}}};
-        end
-    end
-    
-    // 计算状态跟踪
-    always @(posedge clk or posedge rst) begin
-        if(rst) begin
-            calc_started <= 0;
-            calc_done <= 0;
-            outvalid <= 0;
-        end else begin
-            // 计算开始
-            if(inputs_valid && !calc_started) begin
-                calc_started <= 1;
-                calc_done <= 0;
-                outvalid <= 0;
-            end
-            // 计算结束
-            else if(calc_started && !calc_done) begin
-                calc_done <= 1;
-            end
-            // 输出有效
-            else if(calc_done && !outvalid) begin
-                outvalid <= 1;
-            end
-            // 重置
-            else if(outvalid) begin
-                calc_started <= 0;
-                calc_done <= 0;
-                outvalid <= 0;
-            end
-        end
-    end
-    
-    // 并行乘法
-    always @(posedge clk) begin
-        if(rst) begin
-            mul1 <= 0;
-            mul2 <= 0;
-        end else if(inputs_valid) begin
-            mul1 <= $signed(input1) * $signed(weight1);
-            mul2 <= $signed(input2) * $signed(weight2);
-        end
-    end
-    
-    // 累加和偏置加法
-    always @(posedge clk) begin
-        if(rst || !calc_started) begin
-            sum <= 0;
-        end else if(calc_started && !calc_done) begin
-            sum <= mul1 + mul2 + bias;  // 一步完成全部加法
-        end
-    end
-    
 endmodule

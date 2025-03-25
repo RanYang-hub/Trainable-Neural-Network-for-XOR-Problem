@@ -1,0 +1,115 @@
+# //  ModelSim SE-64 2020.1 Jan 28 2020 Linux 4.18.0-553.40.1.el8_10.x86_64
+# //
+# //  Copyright 1991-2020 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  ModelSim SE-64 and its associated documentation contain trade
+# //  secrets and commercial or financial information that are the property of
+# //  Mentor Graphics Corporation and are privileged, confidential,
+# //  and exempt from disclosure under the Freedom of Information Act,
+# //  5 U.S.C. Section 552. Furthermore, this information
+# //  is prohibited from disclosure under the Trade Secrets Act,
+# //  18 U.S.C. Section 1905.
+# //
+# do motiondetect.do
+# ** Warning: (vlib-34) Library already exists at "work".
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 17:52:51 on Mar 09,2025
+# vlog -reportprogress 300 Sig_ROM.v 
+# -- Compiling module Sig_ROM
+# 
+# Top level modules:
+# 	Sig_ROM
+# End time: 17:52:51 on Mar 09,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 17:52:51 on Mar 09,2025
+# vlog -reportprogress 300 neuron.v 
+# -- Compiling module neuron
+# 
+# Top level modules:
+# 	neuron
+# End time: 17:52:51 on Mar 09,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 17:52:51 on Mar 09,2025
+# vlog -reportprogress 300 forward_propagation.v 
+# -- Compiling module forward_propagation
+# 
+# Top level modules:
+# 	forward_propagation
+# End time: 17:52:51 on Mar 09,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# Model Technology ModelSim SE-64 vlog 2020.1 Compiler 2020.01 Jan 28 2020
+# Start time: 17:52:51 on Mar 09,2025
+# vlog -reportprogress 300 forward_propagation_tb.v 
+# -- Compiling module tb_neural_network
+# 
+# Top level modules:
+# 	tb_neural_network
+# End time: 17:52:51 on Mar 09,2025, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
+# vsim -t 1ns -L work -voptargs=""+acc"" tb_neural_network 
+# Start time: 17:52:51 on Mar 09,2025
+# ** Note: (vsim-3813) Design is being optimized due to module recompilation...
+# Loading work.tb_neural_network(fast)
+# Loading work.forward_propagation(fast)
+# Loading work.neuron(fast)
+# Loading work.Sig_ROM(fast)
+# Time:                    0, Test:           x, x1=0000, x2=0000, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                   40, Test:           1, x1=0000, x2=0000, h1=0000, h2=0000, y=0000, fp_valid=0
+# Starting Test 1: XOR for inputs: x1=0, x2=0
+# Time:                   95, Test:           1, x1=0000, x2=0000, h1=0046, h2=0030, y=0000, fp_valid=0
+# Time:                  145, Test:           1, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Time:                  155, Test:           1, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=1
+# Test 1: Output y = 00b0 (0.688)
+# Time:                  175, Test:           1, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Time:                  275, Test:           2, x1=0000, x2=0100, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Starting Test 2: XOR for inputs: x1=0, x2=1
+# Time:                  285, Test:           2, x1=0000, x2=0100, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                  345, Test:           2, x1=0000, x2=0100, h1=00a6, h2=0066, y=0000, fp_valid=0
+# Time:                  395, Test:           2, x1=0000, x2=0100, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Time:                  405, Test:           2, x1=0000, x2=0100, h1=00a6, h2=0066, y=00e0, fp_valid=1
+# Test 2: Output y = 00e0 (0.875)
+# Time:                  425, Test:           2, x1=0000, x2=0100, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Time:                  525, Test:           3, x1=0100, x2=0000, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Starting Test 3: XOR for inputs: x1=1, x2=0
+# Time:                  535, Test:           3, x1=0100, x2=0000, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                  595, Test:           3, x1=0100, x2=0000, h1=00a6, h2=0066, y=0000, fp_valid=0
+# Time:                  645, Test:           3, x1=0100, x2=0000, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Time:                  655, Test:           3, x1=0100, x2=0000, h1=00a6, h2=0066, y=00e0, fp_valid=1
+# Test 3: Output y = 00e0 (0.875)
+# Time:                  675, Test:           3, x1=0100, x2=0000, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Time:                  775, Test:           4, x1=0100, x2=0100, h1=00a6, h2=0066, y=00e0, fp_valid=0
+# Starting Test 4: XOR for inputs: x1=1, x2=1
+# Time:                  785, Test:           4, x1=0100, x2=0100, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                  845, Test:           4, x1=0100, x2=0100, h1=00d6, h2=00c2, y=0000, fp_valid=0
+# Time:                  895, Test:           4, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=0
+# Time:                  905, Test:           4, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=1
+# Test 4: Output y = 00f4 (0.953)
+# Time:                  925, Test:           4, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=0
+# Time:                 1025, Test:           5, x1=0000, x2=0000, h1=00d6, h2=00c2, y=00f4, fp_valid=0
+# Starting Test 5: XOR for inputs: x1=0, x2=0 (重复测试)
+# Time:                 1035, Test:           5, x1=0000, x2=0000, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                 1095, Test:           5, x1=0000, x2=0000, h1=0046, h2=0030, y=0000, fp_valid=0
+# Time:                 1145, Test:           5, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Time:                 1155, Test:           5, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=1
+# Test 5: Output y = 00b0 (0.688)
+# Time:                 1175, Test:           5, x1=0000, x2=0000, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Time:                 1275, Test:           6, x1=0100, x2=0100, h1=0046, h2=0030, y=00b0, fp_valid=0
+# Starting Test 6: XOR for inputs: x1=1, x2=1 (重复测试)
+# Time:                 1285, Test:           6, x1=0100, x2=0100, h1=0000, h2=0000, y=0000, fp_valid=0
+# Time:                 1345, Test:           6, x1=0100, x2=0100, h1=00d6, h2=00c2, y=0000, fp_valid=0
+# Time:                 1395, Test:           6, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=0
+# Time:                 1405, Test:           6, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=1
+# Test 6: Output y = 00f4 (0.953)
+# Time:                 1425, Test:           6, x1=0100, x2=0100, h1=00d6, h2=00c2, y=00f4, fp_valid=0
+# All tests completed
+# ** Note: $finish    : forward_propagation_tb.v(199)
+#    Time: 1525 ns  Iteration: 0  Instance: /tb_neural_network
+# 1
+# Break in Module tb_neural_network at forward_propagation_tb.v line 199
+# 0 ns
+# 1601 ns
+# End time: 17:57:40 on Mar 09,2025, Elapsed time: 0:04:49
+# Errors: 0, Warnings: 0
