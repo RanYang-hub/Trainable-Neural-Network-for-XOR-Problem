@@ -21,7 +21,7 @@ This module:
 * Implements ReLU and Sigmoid activation functions
 * Contains a combinational logic implementation of the Sigmoid lookup table
 
-#### Key Sub-modules in the forward_propagation Module
+#### Key Sub-modules in the forward subfolder
 
 1. **Sigmoid_Combinational Sub-module**:
    * A combinational logic implementation of the sigmoid activation function
