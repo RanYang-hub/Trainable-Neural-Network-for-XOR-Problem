@@ -1,7 +1,6 @@
 # FPGA-based Trainable Neural Network for XOR Problem
 
 ## Core Modules
-
 * **Forward Propagation Module (forward_propagation)**: Implements the forward computation process of the neural network, includes ReLU and Sigmoid activation functions, and supports parallel computation
 * **Backpropagation Module (backpropagation)**: Implements the gradient descent algorithm, calculates weight and bias updates, and supports configurable learning rates
 * **Top-level Module (xor_nn_top)**: Integrates forward propagation and backpropagation modules, manages the training process and weight updates, and handles input/output interfaces
@@ -50,6 +49,8 @@ The top-level network module integrates forward and backward propagation functio
 * Schedules forward and backward propagation operations
 * Updates weights based on backpropagation results
 * Detects training completion conditions
+* Initializes weights and biases with values appropriate for the XOR problem
+* Sets the learning rate (in 8.8 fixed-point format)
 
 ### Test Bench Modules
 * **XOR_bp_tb.v**: Independent test bench for the backpropagation module
@@ -63,8 +64,10 @@ The top-level network module integrates forward and backward propagation functio
 3. Or run backpropagation_tb to test the backpropagation module independently
 
 ### Training Configuration
-You can modify the following parameters in the test bench:
-* Training mode (by modifying the train variable)
+You can modify the following parameters in the top-level module (xor_nn_top.v):
 * Learning rate (by modifying the learning_rate variable)
-* Maximum iteration count (by modifying the max_iterations variable)
 * Initial weights and bias values
+
+Additionally, in the test bench you can modify:
+* Training mode (by modifying the train variable in backpropagation_tb.v)
+* Maximum iteration count (by modifying the max_iterations variable in the top-level module or overriding it in the test bench)
